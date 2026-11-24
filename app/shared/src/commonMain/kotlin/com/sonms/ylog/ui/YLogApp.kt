@@ -32,7 +32,10 @@ import dev.zacsweers.metrox.viewmodel.metroViewModel
 import kotlinx.collections.immutable.ImmutableList
 
 @Composable
-fun YLogApp(appState: YLogAppState, viewModel: MainViewModel = metroViewModel()) {
+fun YLogApp(
+    appState: YLogAppState,
+    viewModel: MainViewModel = metroViewModel(),
+) {
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
     if (uiState is MainUiState.Loading) return
 

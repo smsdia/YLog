@@ -1,93 +1,106 @@
 # YLog Design Tokens
 
 - Source: Figma `YLog 작업 공간`
-- Color: `⭐️color token` section (`232:17662`), Figma Variables 기준
+- Color: 사용자가 전달한 색상 정의 기준 (아래 Color 절 참고)
 - Typography: `⭐️typography` section (`234:17663`), Figma text styles 기준
-- 이 문서의 값은 `get_variable_defs` 결과가 원본이다. 프레임 안에 적힌 라벨 텍스트와 다를 경우 변수 값을 따른다.
+- Typography 값은 `get_variable_defs` 결과가 원본이다. 프레임 안 라벨과 다를 경우 변수 값을 따른다.
 
 ---
 
 ## 1. Color
 
-토큰 이름은 Figma 변수 경로 그대로 사용한다.
+토큰 이름은 `Primary/Violet/500`처럼 그룹, 이름, 단계 순서로 쓴다.
+이 절의 값은 Figma 변수를 다시 읽어서 확인한 것이 아니라 사용자가 전달한 색상 정의를 옮긴 것이다. Figma와 대조하기 전까지 값의 원본은 이 문서와 `YLogColors.kt`이다.
 
-### Primary / Green
-
-| Token | Hex |
-|---|---|
-| Primary/Green/50 | `#F0FDF2` |
-| Primary/Green/100 | `#DCF9E0` |
-| Primary/Green/200 | `#BDF4C5` |
-| Primary/Green/300 | `#89ED98` |
-| Primary/Green/400 | `#4FE661` |
-| Primary/Green/500 | `#32C949` |
-| Primary/Green/600 | `#24A33A` |
-| Primary/Green/700 | `#1F812F` |
-| Primary/Green/800 | `#1B6328` |
-| Primary/Green/900 | `#174A22` |
-
-### Primary / Yellow
+### Primary / Violet (브랜드)
 
 | Token | Hex |
 |---|---|
-| Primary/Yellow/50 | `#FFFDF0` |
-| Primary/Yellow/100 | `#FFF8C9` |
-| Primary/Yellow/200 | `#FFF19A` |
-| Primary/Yellow/300 | `#FFE97A` |
-| Primary/Yellow/400 | `#FFD84D` |
-| Primary/Yellow/500 | `#F2BA20` |
-| Primary/Yellow/700 | `#9B6A12` |
-| Primary/Yellow/800 | `#704D14` |
+| Primary/Violet/50 | `#FAF8FC` |
+| Primary/Violet/100 | `#F3F0FF` |
+| Primary/Violet/200 | `#EBE4FF` |
+| Primary/Violet/300 | `#D6C8FF` |
+| Primary/Violet/400 | `#A58BFC` |
+| Primary/Violet/500 | `#7153F5` |
+| Primary/Violet/600 | `#5E3BE6` |
+| Primary/Violet/700 | `#53389E` |
+| Primary/Violet/800 | `#3B2375` |
+| Primary/Violet/900 | `#221834` |
 
-> Yellow/600은 정의되어 있지 않다 (500 → 700으로 건너뜀).
+### Primary / Pink (강조)
+
+| Token | Hex |
+|---|---|
+| Primary/Pink/50 | `#FFF0F5` |
+| Primary/Pink/100 | `#FFE0EC` |
+| Primary/Pink/200 | `#FFB8D2` |
+| Primary/Pink/300 | `#FF80AE` |
+| Primary/Pink/400 | `#FF4D90` |
+| Primary/Pink/500 | `#FF2D78` |
+| Primary/Pink/600 | `#E01863` |
+| Primary/Pink/700 | `#B80A4C` |
+| Primary/Pink/800 | `#8A0035` |
+
+### Primary / Peach (보조)
+
+| Token | Hex |
+|---|---|
+| Primary/Peach/50 | `#FFF7F2` |
+| Primary/Peach/100 | `#FFEBDD` |
+| Primary/Peach/200 | `#FFD4BA` |
+| Primary/Peach/300 | `#FFB388` |
+| Primary/Peach/400 | `#FA9251` |
+| Primary/Peach/500 | `#F77626` |
+| Primary/Peach/600 | `#D65C13` |
+| Primary/Peach/700 | `#A84206` |
+| Primary/Peach/800 | `#7A2D00` |
 
 ### Neutral
 
 | Token | Hex |
 |---|---|
 | Neutral/0 | `#FFFFFF` |
-| Neutral/50 | `#FAFAF8` |
-| Neutral/100 | `#F2F2EF` |
-| Neutral/200 | `#E5E5E1` |
-| Neutral/300 | `#D0D0CB` |
-| Neutral/400 | `#A6A6A0` |
-| Neutral/500 | `#7A7A75` |
-| Neutral/600 | `#5B5B57` |
-| Neutral/700 | `#3F3F3C` |
-| Neutral/800 | `#292927` |
-| Neutral/900 | `#1B1C1B` |
-| Neutral/950 | `#0D0D0C` |
+| Neutral/50 | `#FAF8FB` |
+| Neutral/100 | `#EDE8F5` |
+| Neutral/200 | `#DDD7E7` |
+| Neutral/300 | `#CDD0D5` |
+| Neutral/400 | `#B1B6BE` |
+| Neutral/500 | `#8A949E` |
+| Neutral/600 | `#6E6480` |
+| Neutral/700 | `#454C53` |
+| Neutral/800 | `#31363D` |
+| Neutral/900 | `#1E152A` |
+| Neutral/950 | `#110C18` |
 
 ### System
 
 단계는 50 / 200 / 400 / 600 / 800 다섯 개만 정의되어 있다.
 
-| Token | Success | Warning | Danger |
-|---|---|---|---|
-| 50 | `#F0FDF2` | `#FFF6E8` | `#FFF1F0` |
-| 200 | `#BDF4C5` | `#FFD6A3` | `#FFC7C3` |
-| 400 | `#4FE661` | `#FF9F43` | `#FF6B61` |
-| 600 | `#24A33A` | `#D96800` | `#D92D20` |
-| 800 | `#1B6328` | `#7A3A00` | `#8A1C14` |
+| Token | Success | Warning | Danger | Info |
+|---|---|---|---|---|
+| 50 | `#EFFCF3` | `#FFF7ED` | `#FFF0F2` | `#F3F0FF` |
+| 200 | `#B5F2C4` | `#FFD7A8` | `#FFBDC6` | `#D6C8FF` |
+| 400 | `#43D66A` | `#FF9B38` | `#FF697C` | `#A58BFC` |
+| 600 | `#1EAC44` | `#E0740E` | `#E6203D` | `#7153F5` |
+| 800 | `#126829` | `#8C4300` | `#8A0C1E` | `#3B2375` |
 
-### 확인 필요한 불일치
+Info는 Primary/Violet의 100, 300, 400, 500, 800과 값이 같다.
 
-**System/Success**: 변수 값은 Primary/Green의 50/200/400/600/800과 완전히 동일하다. 그런데 Figma 프레임 안 라벨에는 다른 hex가 적혀 있다.
+### Glass (알파)
 
-| Step | 변수 값 (이 문서 기준) | 프레임 라벨 |
+| Token | Hex (ARGB) | 불투명도 |
 |---|---|---|
-| 50 | `#F0FDF2` | `#ECFFF1` |
-| 200 | `#BDF4C5` | `#A7FFBA` |
-| 400 | `#4FE661` | `#3EFA6A` |
-| 600 | `#24A33A` | `#16B23D` |
-| 800 | `#1B6328` | `#126B2D` |
+| glassWhite80 | `#CCFFFFFF` | 80% 흰색 |
+| glassWhite50 | `#80FFFFFF` | 50% 흰색 |
+| glassWhite20 | `#33FFFFFF` | 20% 흰색 |
+| dimBlack70 | `#B3000000` | 70% 검정 |
+| dimBlack40 | `#66000000` | 40% 검정 |
+| shadowBlack10 | `#1A000000` | 10% 검정 |
 
-변수가 Green을 alias로 참조하는 건지, 라벨이 옛 값인지 이 데이터만으로는 알 수 없다. 디자이너에게 확인이 필요하다.
+### 확인 필요한 사항
 
-### 강조 표시 (추정)
-
-- Green/400, Yellow/400 카드에 별(star) 아이콘이 붙어 있다.
-- 메인 컬러를 뜻하는 표시로 보이지만 Figma에 명시된 설명은 없다. 디자이너 확인 전까지 추정으로 취급한다.
+- Neutral/300 ~ 500, 700, 800은 푸른 회색(`#CDD0D5` 등)이고 0 ~ 200, 600, 900, 950은 보라 틴트이다. 의도한 구성인지 디자이너 확인이 필요하다.
+- Danger는 원래 브랜드 레드 `#FF3C55`를 기반으로 한다고 알려졌지만, 정의된 단계 값(400은 `#FF697C`, 600은 `#E6203D`)에는 이 값이 없다.
 
 ---
 
@@ -123,14 +136,14 @@
 
 | Figma | 코드 |
 |---|---|
-| Primary/Green/500 | `YLog.colors.primary.green500` |
+| Primary/Violet/500 | `YLog.colors.primary.violet500` |
 | Neutral/900 | `YLog.colors.neutral.n900` (숫자 시작을 피하려고 `n` 접두어) |
 | System/Danger/600 | `YLog.colors.system.danger600` |
 | Title/20 | `YLog.typography.title.t20` |
 | Body/16 | `YLog.typography.body.b16` |
 
 - 타이포그래피 그룹 접두어: `d`(Display), `h`(Heading), `t`(Title), `b`(Body), `l`(Label), `c`(Caption)
-- `MaterialTheme`은 background, surface, onBackground, onSurface만 Neutral로 연결했다. `primary` 계열은 메인 컬러 확정 후 연결한다.
+- `MaterialTheme`은 background, surface, onBackground, onSurface만 Neutral로 연결했다. `primary` 계열은 연결하지 않았다.
 - 다크 테마는 지원하지 않는다.
 
 ---

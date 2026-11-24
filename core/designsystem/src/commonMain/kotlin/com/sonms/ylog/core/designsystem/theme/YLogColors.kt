@@ -4,78 +4,104 @@ import androidx.compose.runtime.Immutable
 import androidx.compose.ui.graphics.Color
 
 /**
- * Figma 변수 경로를 그대로 따르는 색상 토큰이다. 값의 기준은 DESIGN.md이다.
- * 용도(brand 등)는 정하지 않고 화면 코드가 직접 고른다. 사용처: `YLog.colors.primary.green500`
+ * 색상 토큰 모음. 값의 기준은 DESIGN.md이다.
+ * 용도(brand 등)는 정하지 않고 화면 코드가 직접 고른다. 사용처: `YLog.colors.primary.violet500`
  */
 @Immutable
 data class YLogColors(
     val primary: YLogPrimaryColors = YLogPrimaryColors(),
     val neutral: YLogNeutralColors = YLogNeutralColors(),
     val system: YLogSystemColors = YLogSystemColors(),
+    val glass: YLogGlassColors = YLogGlassColors(),
 )
 
-/** Primary/Green, Primary/Yellow. Yellow/600은 Figma에 정의되어 있지 않다. */
+/** Primary/Violet(브랜드), Primary/Pink(강조), Primary/Peach(보조) 스케일. */
 @Immutable
 data class YLogPrimaryColors(
-    val green50: Color = Color(0xFFF0FDF2),
-    val green100: Color = Color(0xFFDCF9E0),
-    val green200: Color = Color(0xFFBDF4C5),
-    val green300: Color = Color(0xFF89ED98),
-    val green400: Color = Color(0xFF4FE661),
-    val green500: Color = Color(0xFF32C949),
-    val green600: Color = Color(0xFF24A33A),
-    val green700: Color = Color(0xFF1F812F),
-    val green800: Color = Color(0xFF1B6328),
-    val green900: Color = Color(0xFF174A22),
+    val violet50: Color = Color(0xFFFAF8FC),
+    val violet100: Color = Color(0xFFF3F0FF),
+    val violet200: Color = Color(0xFFEBE4FF),
+    val violet300: Color = Color(0xFFD6C8FF),
+    val violet400: Color = Color(0xFFA58BFC),
+    val violet500: Color = Color(0xFF7153F5),
+    val violet600: Color = Color(0xFF5E3BE6),
+    val violet700: Color = Color(0xFF53389E),
+    val violet800: Color = Color(0xFF3B2375),
+    val violet900: Color = Color(0xFF221834),
 
-    val yellow50: Color = Color(0xFFFFFDF0),
-    val yellow100: Color = Color(0xFFFFF8C9),
-    val yellow200: Color = Color(0xFFFFF19A),
-    val yellow300: Color = Color(0xFFFFE97A),
-    val yellow400: Color = Color(0xFFFFD84D),
-    val yellow500: Color = Color(0xFFF2BA20),
-    val yellow700: Color = Color(0xFF9B6A12),
-    val yellow800: Color = Color(0xFF704D14),
+    val pink50: Color = Color(0xFFFFF0F5),
+    val pink100: Color = Color(0xFFFFE0EC),
+    val pink200: Color = Color(0xFFFFB8D2),
+    val pink300: Color = Color(0xFFFF80AE),
+    val pink400: Color = Color(0xFFFF4D90),
+    val pink500: Color = Color(0xFFFF2D78),
+    val pink600: Color = Color(0xFFE01863),
+    val pink700: Color = Color(0xFFB80A4C),
+    val pink800: Color = Color(0xFF8A0035),
+
+    val peach50: Color = Color(0xFFFFF7F2),
+    val peach100: Color = Color(0xFFFFEBDD),
+    val peach200: Color = Color(0xFFFFD4BA),
+    val peach300: Color = Color(0xFFFFB388),
+    val peach400: Color = Color(0xFFFA9251),
+    val peach500: Color = Color(0xFFF77626),
+    val peach600: Color = Color(0xFFD65C13),
+    val peach700: Color = Color(0xFFA84206),
+    val peach800: Color = Color(0xFF7A2D00),
 )
 
 /** Neutral/0 ~ 950. 속성 이름은 숫자로 시작할 수 없어 `n` 접두어를 붙인다. */
 @Immutable
 data class YLogNeutralColors(
     val n0: Color = Color(0xFFFFFFFF),
-    val n50: Color = Color(0xFFFAFAF8),
-    val n100: Color = Color(0xFFF2F2EF),
-    val n200: Color = Color(0xFFE5E5E1),
-    val n300: Color = Color(0xFFD0D0CB),
-    val n400: Color = Color(0xFFA6A6A0),
-    val n500: Color = Color(0xFF7A7A75),
-    val n600: Color = Color(0xFF5B5B57),
-    val n700: Color = Color(0xFF3F3F3C),
-    val n800: Color = Color(0xFF292927),
-    val n900: Color = Color(0xFF1B1C1B),
-    val n950: Color = Color(0xFF0D0D0C),
+    val n50: Color = Color(0xFFFAF8FB),
+    val n100: Color = Color(0xFFEDE8F5),
+    val n200: Color = Color(0xFFDDD7E7),
+    val n300: Color = Color(0xFFCDD0D5),
+    val n400: Color = Color(0xFFB1B6BE),
+    val n500: Color = Color(0xFF8A949E),
+    val n600: Color = Color(0xFF6E6480),
+    val n700: Color = Color(0xFF454C53),
+    val n800: Color = Color(0xFF31363D),
+    val n900: Color = Color(0xFF1E152A),
+    val n950: Color = Color(0xFF110C18),
 )
 
-/**
- * System/Success, Warning, Danger. 단계는 50, 200, 400, 600, 800만 있다.
- * Success는 Primary/Green과 값이 같지만(DESIGN.md 불일치 항목) 디자이너 확인 전까지 별도 토큰으로 둔다.
- */
+/** System/Success, Warning, Danger, Info. 단계는 50, 200, 400, 600, 800만 있다. */
 @Immutable
 data class YLogSystemColors(
-    val success50: Color = Color(0xFFF0FDF2),
-    val success200: Color = Color(0xFFBDF4C5),
-    val success400: Color = Color(0xFF4FE661),
-    val success600: Color = Color(0xFF24A33A),
-    val success800: Color = Color(0xFF1B6328),
+    val success50: Color = Color(0xFFEFFCF3),
+    val success200: Color = Color(0xFFB5F2C4),
+    val success400: Color = Color(0xFF43D66A),
+    val success600: Color = Color(0xFF1EAC44),
+    val success800: Color = Color(0xFF126829),
 
-    val warning50: Color = Color(0xFFFFF6E8),
-    val warning200: Color = Color(0xFFFFD6A3),
-    val warning400: Color = Color(0xFFFF9F43),
-    val warning600: Color = Color(0xFFD96800),
-    val warning800: Color = Color(0xFF7A3A00),
+    val warning50: Color = Color(0xFFFFF7ED),
+    val warning200: Color = Color(0xFFFFD7A8),
+    val warning400: Color = Color(0xFFFF9B38),
+    val warning600: Color = Color(0xFFE0740E),
+    val warning800: Color = Color(0xFF8C4300),
 
-    val danger50: Color = Color(0xFFFFF1F0),
-    val danger200: Color = Color(0xFFFFC7C3),
-    val danger400: Color = Color(0xFFFF6B61),
-    val danger600: Color = Color(0xFFD92D20),
-    val danger800: Color = Color(0xFF8A1C14),
+    val danger50: Color = Color(0xFFFFF0F2),
+    val danger200: Color = Color(0xFFFFBDC6),
+    val danger400: Color = Color(0xFFFF697C),
+    val danger600: Color = Color(0xFFE6203D),
+    val danger800: Color = Color(0xFF8A0C1E),
+
+    val info50: Color = Color(0xFFF3F0FF),
+    val info200: Color = Color(0xFFD6C8FF),
+    val info400: Color = Color(0xFFA58BFC),
+    val info600: Color = Color(0xFF7153F5),
+    val info800: Color = Color(0xFF3B2375),
+)
+
+/** 반투명 글래스 표면과 딤, 그림자용 알파 토큰. 접미어 숫자가 불투명도(%)이다. */
+@Immutable
+data class YLogGlassColors(
+    val glassWhite80: Color = Color(0xCCFFFFFF),
+    val glassWhite50: Color = Color(0x80FFFFFF),
+    val glassWhite20: Color = Color(0x33FFFFFF),
+    val dimBlack70: Color = Color(0xB3000000),
+    val dimBlack40: Color = Color(0x66000000),
+    val shadowBlack10: Color = Color(0x1A000000),
 )

@@ -15,7 +15,7 @@ private val LocalYLogTypography = staticCompositionLocalOf<YLogTypography> {
     error("YLogTheme 안에서만 YLog.typography를 쓸 수 있습니다")
 }
 
-/** 사용처: `YLog.colors.primary.green500`, `YLog.typography.body.b16` */
+/** 사용처: `YLog.colors.primary.violet500`, `YLog.typography.body.b16` */
 object YLog {
     val colors: YLogColors
         @Composable @ReadOnlyComposable
