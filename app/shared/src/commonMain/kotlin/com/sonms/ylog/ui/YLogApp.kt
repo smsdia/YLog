@@ -27,6 +27,7 @@ import com.sonms.ylog.core.trigger.ui.rememberDialogStateHolder
 import com.sonms.ylog.core.trigger.ui.rememberGlobalMessageState
 import com.sonms.ylog.core.trigger.ui.rememberGlobalUiEventHolder
 import com.sonms.ylog.presentation.home.impl.homeEntry
+import com.sonms.ylog.presentation.splash.impl.splashEntry
 import com.sonms.ylog.navigation.MainTab
 import dev.zacsweers.metrox.viewmodel.metroViewModel
 import kotlinx.collections.immutable.ImmutableList
@@ -65,6 +66,7 @@ fun YLogApp(
                 entries = appState.navigationState.toEntries(
                     entryProvider {
                         homeEntry(appState.navigator)
+                        splashEntry(appState.navigator)
                     },
                 ),
                 onBack = appState.navigator::goBack,

@@ -3,6 +3,7 @@ package com.sonms.ylog.navigation
 import androidx.navigation3.runtime.NavKey
 import androidx.savedstate.serialization.SavedStateConfiguration
 import com.sonms.ylog.presentation.home.api.Home
+import com.sonms.ylog.presentation.splash.api.Splash
 import kotlinx.serialization.modules.SerializersModule
 import kotlinx.serialization.modules.polymorphic
 import kotlinx.serialization.modules.subclass
@@ -15,6 +16,7 @@ val YLogNavConfig = SavedStateConfiguration {
     serializersModule = SerializersModule {
         polymorphic(NavKey::class) {
             subclass(Home::class)
+            subclass(Splash::class)
         }
     }
 }

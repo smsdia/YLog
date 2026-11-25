@@ -7,7 +7,7 @@ Single source for the module list, naming, dependency rules, and adding modules.
 ```
 app/        androidApp, iosApp, shared
 core/       ar, common, database, datastore, designsystem, imageprocessing, model, navigation, trigger
-presentation/<feature>/   api, impl
+presentation/<feature>/   api, impl (home, splash)
 domain/<feature>          (created with the first feature that needs it)
 data/<feature>            (created with the first feature that needs it)
 ```
@@ -23,6 +23,7 @@ data/<feature>            (created with the first feature that needs it)
 | `app:shared` | iOS Framework umbrella and the composition point. `commonMain` holds `ui` (`YLogRoot`, `YLogApp`, `YLogAppState`, `MainViewModel`, `MainTab`, `YLogNavConfig`) and `di` (`AppGraph`, ViewModel factory, image loader binding). Platform graphs (`AndroidAppGraph`, `IosAppGraph`) and the iOS entry (`MainViewController`) live in the platform source sets |
 | `presentation:<x>:api` | `NavKey` types and `Navigator` extension functions only. No UI, resources, domain, or data code |
 | `presentation:<x>:impl` | Screens, `UiState`, ViewModel, `xxxEntry` extensions on `EntryProviderScope` |
+| `presentation:splash` | In-app splash screen. `Splash` is a plain `Route`, not a tab. Skeleton only: content and exit condition are undecided, and it is not yet the start destination |
 | `core:common` | Shared extensions (`extension`) and utilities (`util`, including `suspendRunCatching`). Depends only on Compose and Lifecycle KMP artifacts, declared `implementation`. No platform APIs, no other `core:*` |
 | `core:model` | Models shared by presentation, domain, and data |
 | `core:designsystem` | Theme (`YLogTheme`, `YLogColors`, `YLogTypography`), shared components, fonts |

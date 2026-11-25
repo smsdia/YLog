@@ -47,4 +47,6 @@ include(
 include(
     ":presentation:home:api",
     ":presentation:home:impl",
+    ":presentation:splash:api",
+    ":presentation:splash:impl",
 )

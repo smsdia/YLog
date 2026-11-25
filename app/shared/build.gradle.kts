@@ -48,6 +48,8 @@ kotlin {
             implementation(projects.core.trigger)
             implementation(projects.presentation.home.api)
             implementation(projects.presentation.home.impl)
+            implementation(projects.presentation.splash.api)
+            implementation(projects.presentation.splash.impl)
             implementation(libs.coil.compose)
             implementation(libs.kermit)
             implementation(libs.bundles.compose.feature)
