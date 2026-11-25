@@ -35,7 +35,7 @@ fun YLogTheme(content: @Composable () -> Unit) {
         LocalYLogColors provides colors,
         LocalYLogTypography provides typography,
     ) {
-        // ponytail: 메인 컬러 확정 전이라 primary 계열은 Material 기본값이다. 확정 후 연결한다.
+        // 메인 컬러 확정 전이라 primary 계열은 Material 기본값이다. 확정 후 연결한다.
         MaterialTheme(
             colorScheme = lightColorScheme(
                 background = colors.neutral.n50,
