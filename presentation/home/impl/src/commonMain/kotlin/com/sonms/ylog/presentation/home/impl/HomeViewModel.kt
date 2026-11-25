@@ -9,8 +9,4 @@ import dev.zacsweers.metrox.viewmodel.ViewModelKey
 @Inject
 @ViewModelKey
 @ContributesIntoMap(AppScope::class)
-class HomeViewModel (
-
-): ViewModel() {
-
-}
+class HomeViewModel : ViewModel()
