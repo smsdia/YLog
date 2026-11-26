@@ -23,6 +23,7 @@ import androidx.compose.ui.input.pointer.changedToDownIgnoreConsumed
 import androidx.compose.ui.input.pointer.changedToUp
 import androidx.compose.ui.input.pointer.isOutOfBounds
 import androidx.compose.ui.input.pointer.pointerInput
+import androidx.compose.ui.layout.layout
 import androidx.compose.ui.node.ModifierNodeElement
 import androidx.compose.ui.node.PointerInputModifierNode
 import androidx.compose.ui.node.SemanticsModifierNode
@@ -30,9 +31,12 @@ import androidx.compose.ui.platform.InspectorInfo
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.semantics.SemanticsPropertyReceiver
 import androidx.compose.ui.semantics.onClick
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.IntSize
 import androidx.compose.ui.unit.Velocity
+import androidx.compose.ui.unit.dp
 import kotlin.math.abs
+import kotlin.math.roundToInt
 
 // 탭하거나 IME의 next로 포커스가 넘어올 때, 가상 키보드 위로 스크롤해서 보여준다
 fun Modifier.focusScrollable(viewportHeight: Int = 0): Modifier = composed {
@@ -210,5 +214,28 @@ fun Modifier.disableUpWardEvent(): Modifier = this.pointerInput(Unit) {
                 }
             }
         }
+    }
+}
+
+/** 콘텐츠의 가로·세로 중 긴 변을 한 변으로 하는 정사각형 영역을 만들고, 콘텐츠를 그 중앙에 배치하는 Modifier */
+fun Modifier.squareByLongerSide(
+    minSize: Dp = 0.dp,
+): Modifier = layout { measurable, constraints ->
+    val minSidePx = minSize.roundToPx()
+    val placeable = measurable.measure(
+        constraints.copy(minWidth = 0, minHeight = 0)
+    )
+    val side = maxOf(placeable.width, placeable.height, minSidePx)
+        .coerceAtMost(
+            maxOf(
+                if (constraints.hasBoundedWidth) constraints.maxWidth else Int.MAX_VALUE,
+                if (constraints.hasBoundedHeight) constraints.maxHeight else Int.MAX_VALUE,
+            )
+        )
+
+    layout(side, side) {
+        val x = ((side - placeable.width) / 2f).roundToInt()
+        val y = ((side - placeable.height) / 2f).roundToInt()
+        placeable.place(x, y)
     }
 }
