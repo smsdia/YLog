@@ -96,7 +96,7 @@ fun GlobalMessageHost(state: GlobalMessageState, modifier: Modifier = Modifier) 
         toast?.let {
             Text(
                 text = it.text,
-                style = YLog.typography.caption.c12,
+                style = YLog.typography.labelMedium,
                 color = YLog.colors.neutral.n0,
                 modifier = Modifier
                     .background(YLog.colors.neutral.n900, RoundedCornerShape(8.dp))

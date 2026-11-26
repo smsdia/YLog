@@ -5,7 +5,6 @@ import androidx.compose.runtime.Immutable
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.unit.em
 import androidx.compose.ui.unit.sp
 import org.jetbrains.compose.resources.Font
 import ylog.core.designsystem.generated.resources.Res
@@ -15,37 +14,32 @@ import ylog.core.designsystem.generated.resources.pretendard_regular
 import ylog.core.designsystem.generated.resources.pretendard_semibold
 
 /**
- * Figma 텍스트 스타일(DESIGN.md)을 그룹별로 묶은 토큰이다.
- * 속성 이름은 크기를 뜻하며 접두어(d, h, t, b, l, c)는 숫자 시작을 피하기 위한 것이다.
- * 사용처: `YLog.typography.title.t20`
+ * Figma 텍스트 스타일(DESIGN.md)과 이름이 일대일로 대응하는 토큰 모음.
+ * 사용처: `YLog.typography.bodyLarge`
  */
 @Immutable
 data class YLogTypography(
-    val display: Display,
-    val heading: Heading,
-    val title: Title,
-    val body: Body,
-    val label: Label,
-    val caption: Caption,
-) {
-    @Immutable
-    data class Display(val d40: TextStyle)
-
-    @Immutable
-    data class Heading(val h32: TextStyle, val h28: TextStyle, val h24: TextStyle)
-
-    @Immutable
-    data class Title(val t22: TextStyle, val t20: TextStyle, val t18: TextStyle)
-
-    @Immutable
-    data class Body(val b18: TextStyle, val b16: TextStyle, val b14: TextStyle)
-
-    @Immutable
-    data class Label(val l16: TextStyle, val l14: TextStyle)
-
-    @Immutable
-    data class Caption(val c12: TextStyle)
-}
+    val displayLarge: TextStyle,
+    val displayMedium: TextStyle,
+    val headingLarge: TextStyle,
+    val headingMedium: TextStyle,
+    val headingSmall: TextStyle,
+    val titleLarge: TextStyle,
+    val titleMedium: TextStyle,
+    val titleSmall: TextStyle,
+    val bodyLarge: TextStyle,
+    val bodyLargeMedium: TextStyle,
+    val bodyLargeStrong: TextStyle,
+    val bodySmall: TextStyle,
+    val labelRegular: TextStyle,
+    val labelMedium: TextStyle,
+    val labelStrong: TextStyle,
+    val captionRegular: TextStyle,
+    val captionMedium: TextStyle,
+    val captionStrong: TextStyle,
+    val microRegular: TextStyle,
+    val microMedium: TextStyle,
+)
 
 @Composable
 fun ylogFontFamily(): FontFamily = FontFamily(
@@ -56,41 +50,34 @@ fun ylogFontFamily(): FontFamily = FontFamily(
 )
 
 fun ylogTypography(fontFamily: FontFamily): YLogTypography {
-    // 자간은 전 스타일 -2%로 같다
-    fun style(size: Int, lineHeight: Int, weight: FontWeight) = TextStyle(
+    // 자간은 전 스타일 0sp이므로 TextStyle 기본값을 그대로 쓴다
+    fun style(size: Int, lineHeight: Int, weight: Int) = TextStyle(
         fontFamily = fontFamily,
         fontSize = size.sp,
         lineHeight = lineHeight.sp,
-        fontWeight = weight,
-        letterSpacing = (-0.02).em,
+        fontWeight = FontWeight(weight),
     )
 
-    val regular = FontWeight.Normal
-    val medium = FontWeight.Medium
-    val semiBold = FontWeight.SemiBold
-    val bold = FontWeight.Bold
-
     return YLogTypography(
-        display = YLogTypography.Display(d40 = style(40, 52, bold)),
-        heading = YLogTypography.Heading(
-            h32 = style(32, 42, bold),
-            h28 = style(28, 38, bold),
-            h24 = style(24, 34, bold),
-        ),
-        title = YLogTypography.Title(
-            t22 = style(22, 30, semiBold),
-            t20 = style(20, 28, semiBold),
-            t18 = style(18, 26, semiBold),
-        ),
-        body = YLogTypography.Body(
-            b18 = style(18, 28, regular),
-            b16 = style(16, 24, regular),
-            b14 = style(14, 22, regular),
-        ),
-        label = YLogTypography.Label(
-            l16 = style(16, 22, semiBold),
-            l14 = style(14, 20, semiBold),
-        ),
-        caption = YLogTypography.Caption(c12 = style(12, 18, medium)),
+        displayLarge = style(40, 48, 600),
+        displayMedium = style(32, 40, 700),
+        headingLarge = style(24, 30, 700),
+        headingMedium = style(20, 26, 700),
+        headingSmall = style(18, 24, 700),
+        titleLarge = style(16, 22, 700),
+        titleMedium = style(16, 22, 600),
+        titleSmall = style(16, 22, 500),
+        bodyLarge = style(14, 20, 400),
+        bodyLargeMedium = style(14, 20, 500),
+        bodyLargeStrong = style(14, 20, 600),
+        bodySmall = style(13, 18, 400),
+        labelRegular = style(12, 16, 400),
+        labelMedium = style(12, 16, 500),
+        labelStrong = style(12, 16, 600),
+        captionRegular = style(11, 15, 400),
+        captionMedium = style(11, 15, 500),
+        captionStrong = style(11, 15, 600),
+        microRegular = style(10, 14, 400),
+        microMedium = style(10, 14, 500),
     )
 }

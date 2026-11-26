@@ -107,24 +107,31 @@ Info는 Primary/Violet의 100, 300, 400, 500, 800과 값이 같다.
 ## 2. Typography
 
 - Font family: **Pretendard** (전 스타일 공통)
-- Letter spacing: 전 스타일 **-2%** (em 기준 -0.02em)
-- 단위는 Figma px 기준. Android에서는 sp로 옮기면 된다.
+- Letter spacing: 전 스타일 **0sp**
+- 단위는 sp이다. 값은 사용자가 전달한 최신 스타일 표 기준이며, Figma 변수와 대조하기 전까지 이 문서와 `YLogTypography.kt`가 원본이다.
 
-| Style | Size | Weight | Line height | Letter spacing |
-|---|---|---|---|---|
-| Display/40 | 40 | Bold 700 | 52 | -2% |
-| Heading/32 | 32 | Bold 700 | 42 | -2% |
-| Heading/28 | 28 | Bold 700 | 38 | -2% |
-| Heading/24 | 24 | Bold 700 | 34 | -2% |
-| Title/22 | 22 | SemiBold 600 | 30 | -2% |
-| Title/20 | 20 | SemiBold 600 | 28 | -2% |
-| Title/18 | 18 | SemiBold 600 | 26 | -2% |
-| Body/18 | 18 | Regular 400 | 28 | -2% |
-| Body/16 | 16 | Regular 400 | 24 | -2% |
-| Body/14 | 14 | Regular 400 | 22 | -2% |
-| Label/16 | 16 | SemiBold 600 | 22 | -2% |
-| Label/14 | 14 | SemiBold 600 | 20 | -2% |
-| Caption/12 | 12 | Medium 500 | 18 | -2% |
+| Figma style | Kotlin property | Size / Line | Weight |
+|---|---|---|---|
+| Display/Large | `displayLarge` | 40 / 48 | 600 |
+| Display/Medium | `displayMedium` | 32 / 40 | 700 |
+| Heading/Large | `headingLarge` | 24 / 30 | 700 |
+| Heading/Medium | `headingMedium` | 20 / 26 | 700 |
+| Heading/Small | `headingSmall` | 18 / 24 | 700 |
+| Title/Large | `titleLarge` | 16 / 22 | 700 |
+| Title/Medium | `titleMedium` | 16 / 22 | 600 |
+| Title/Small | `titleSmall` | 16 / 22 | 500 |
+| Body/Large | `bodyLarge` | 14 / 20 | 400 |
+| Body/Large Medium | `bodyLargeMedium` | 14 / 20 | 500 |
+| Body/Large Strong | `bodyLargeStrong` | 14 / 20 | 600 |
+| Body/Small | `bodySmall` | 13 / 18 | 400 |
+| Label/Regular | `labelRegular` | 12 / 16 | 400 |
+| Label/Medium | `labelMedium` | 12 / 16 | 500 |
+| Label/Strong | `labelStrong` | 12 / 16 | 600 |
+| Caption/Regular | `captionRegular` | 11 / 15 | 400 |
+| Caption/Medium | `captionMedium` | 11 / 15 | 500 |
+| Caption/Strong | `captionStrong` | 11 / 15 | 600 |
+| Micro/Regular | `microRegular` | 10 / 14 | 400 |
+| Micro/Medium | `microMedium` | 10 / 14 | 500 |
 
 참고: 디자인 파일 안에 "프루부체 만들어보기 (pretendard 너비 줄인 버전)"이라는 메모가 있다. 지금은 Pretendard 기준이고, 커스텀 폰트는 추후 계획으로 보인다.
 
@@ -139,10 +146,10 @@ Info는 Primary/Violet의 100, 300, 400, 500, 800과 값이 같다.
 | Primary/Violet/500 | `YLog.colors.primary.violet500` |
 | Neutral/900 | `YLog.colors.neutral.n900` (숫자 시작을 피하려고 `n` 접두어) |
 | System/Danger/600 | `YLog.colors.system.danger600` |
-| Title/20 | `YLog.typography.title.t20` |
-| Body/16 | `YLog.typography.body.b16` |
+| Title/Large | `YLog.typography.titleLarge` |
+| Body/Large Medium | `YLog.typography.bodyLargeMedium` |
 
-- 타이포그래피 그룹 접두어: `d`(Display), `h`(Heading), `t`(Title), `b`(Body), `l`(Label), `c`(Caption)
+- 타이포그래피는 그룹 없이 평평한 속성이며, 이름은 Figma 스타일 이름을 camelCase로 옮긴 것이다.
 - `MaterialTheme`은 background, surface, onBackground, onSurface만 Neutral로 연결했다. `primary` 계열은 연결하지 않았다.
 - 다크 테마는 지원하지 않는다.
 

@@ -119,7 +119,7 @@ private fun YLogBottomBar(
             // 아이콘이 생기기 전까지 contentDescription을 라벨로 대신 쓴다
             Text(
                 text = tab.contentDescription,
-                style = YLog.typography.caption.c12,
+                style = YLog.typography.labelMedium,
                 color = if (tab == currentTab) YLog.colors.neutral.n900 else YLog.colors.neutral.n500,
                 textAlign = TextAlign.Center,
                 modifier = Modifier
