@@ -9,8 +9,14 @@ import org.jetbrains.kotlin.gradle.plugin.KotlinDependencyHandler
 /** convention plugin이 모듈에 추가하는 의존성을 기능별로 한곳에서 관리한다. */
 internal object DependencyManager {
 
-    fun addComposeDependencies(project: Project) = project.commonMain {
-        implementation(project.libs.findBundle("compose-common").get())
+    fun addComposeDependencies(project: Project) {
+        project.commonMain {
+            implementation(project.libs.findBundle("compose-common").get())
+        }
+        // Android Studio 프리뷰가 ComposeViewAdapter를 찾으려면 모듈의 런타임 클래스패스에 있어야 한다
+        project.dependencies {
+            add("androidRuntimeClasspath", project.libs.findLibrary("compose-uiTooling").get())
+        }
     }
 
     fun addSerializationDependencies(project: Project) = project.commonMain {
